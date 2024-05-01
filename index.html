@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Command Voice</title>
+</head>
+<body>
+<p id="output"></p>
+<br>
+<br>
+<button id="start">Click and say something!</button>
+<br>
+<br>
+
+<canvas id="L1"></canvas>
+<br>
+<br>
+<br>
+<canvas id="L2"></canvas>
+<br>
+<br>
+<br>
+
+<canvas id="L3"></canvas>
+<br>
+<br>
+<br>
+
+<canvas id="L4"></canvas>
+<br>
+<br>
+<br>
+<canvas id="L5"></canvas>
+
+
+<script>
+
+</script> 
+<script>
+(() => {
+const startBtn = document.querySelector('#start');
+const output = document.querySelector('#output');
+function start() {
+const recognition = new webkitSpeechRecognition();
+recognition.interimResults = true;
+recognition.lang = "pt-BR";
+recognition.continuous = true;
+recognition.start();
+// This event happens when you talk in the microphone
+recognition.onresult = function(event) {
+for (let i = event.resultIndex; i < event.results.length; i++) {
+if (event.results[i].isFinal) {
+// Here you can get the string of what you told
+const content = event.results[i][0].transcript.trim();
+output.textContent = content;
+
+if(content == "acender L1"){
+document.body.style.background = "#FFFFFF";
+const c = document.getElementById("L1");
+const ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+ctx.fillStyle = "#FFFF00";
+ctx.fill(); }
+if (content == "apagar L1") {
+document.body.style.background = "#FFFFFF";
+const c = document.getElementById("L1");
+const ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+ctx.fillStyle = "#A4A4A4";
+ctx.fill();
+}
+
+if(content == "acender L2"){
+    document.body.style.background = "#FFFFFF";
+    const c = document.getElementById("L2");
+    const ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = "#FFFF00";
+    ctx.fill(); }
+    if (content == "apagar L2") {
+    document.body.style.background = "#FFFFFF";
+    const c = document.getElementById("L2");
+    const ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = "#A4A4A4";
+    ctx.fill();
+    }
+
+    if(content == "acender L3"){
+        document.body.style.background = "#FFFFFF";
+        const c = document.getElementById("L3");
+        const ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = "#FFFF00";
+        ctx.fill(); }
+        if (content == "apagar L3") {
+        document.body.style.background = "#FFFFFF";
+        const c = document.getElementById("L3");
+        const ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+        ctx.fillStyle = "#A4A4A4";
+        ctx.fill();
+        }  
+
+        if(content == "acender L4"){
+            document.body.style.background = "#FFFFFF";
+            const c = document.getElementById("L4");
+            const ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+            ctx.fillStyle = "#FFFF00";
+            ctx.fill(); }
+            if (content == "apagar L4") {
+            document.body.style.background = "#FFFFFF";
+            const c = document.getElementById("L4");
+            const ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+            ctx.fillStyle = "#A4A4A4";
+            ctx.fill();
+            }
+            if(content == "acender L5"){
+                document.body.style.background = "#FFFFFF";
+                const c = document.getElementById("L5");
+                const ctx = c.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+                ctx.fillStyle = "#FFFF00";
+                ctx.fill(); }
+                if (content == "apagar L5") {
+                document.body.style.background = "#FFFFFF";
+                const c = document.getElementById("L5");
+                const ctx = c.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+                ctx.fillStyle = "#A4A4A4";
+                ctx.fill();
+                }
+}
+}
+};
+};
+startBtn.addEventListener('click', () => start());
+
+})();
+</script>
+</body>
+</html>
